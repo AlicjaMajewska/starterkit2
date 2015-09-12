@@ -1,12 +1,14 @@
 package pl.spring.demo.repository;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import pl.spring.demo.entity.BookEntity;
 
+import pl.spring.demo.entity.BookEntity;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -19,12 +21,25 @@ public class BookRepositoryTest {
 
     @Test
     public void testShouldFindBookById() {
-        // given
-        final long bookId = 1;
-        // when
-        BookEntity bookEntity = bookRepository.findOne(bookId);
-        // then
-        assertNotNull(bookEntity);
-        assertEquals("Pierwsza książka", bookEntity.getTitle());
+    	// given
+    	final long bookId = 1;
+    	// when
+    	BookEntity bookEntity = bookRepository.findOne(bookId);
+    	// then
+    	assertNotNull(bookEntity);
+    	assertEquals("Pierwsza książka", bookEntity.getTitle());
+    }
+    @Test
+    public void testShouldChangeTitleOfBook() {
+    	// given
+    	final long bookId = 1;
+    	final String newTitle = "Alicja";
+    	// when
+    	
+    	bookRepository.editBookTitle(bookId, newTitle);
+    	BookEntity bookEntity = bookRepository.findOne(bookId);
+    	// then
+    	assertNotNull(bookEntity);
+    	assertEquals(newTitle, bookEntity.getTitle());
     }
 }

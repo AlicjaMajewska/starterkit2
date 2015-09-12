@@ -3,6 +3,7 @@ package pl.spring.demo.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import pl.spring.demo.entity.BookEntity;
 import pl.spring.demo.mapper.BookMapper;
 import pl.spring.demo.repository.BookRepository;
@@ -28,10 +29,6 @@ public class BookServiceImpl implements BookService {
         return BookMapper.map2To(bookRepository.findBookByTitle(title));
     }
 
-    @Override
-    public List<BookTo> findBooksByAuthor(String author) {
-        return BookMapper.map2To(bookRepository.findBookByAuthor(author));
-    }
 
     @Override
     @Transactional(readOnly = false)
@@ -46,4 +43,12 @@ public class BookServiceImpl implements BookService {
     public void deleteBook(long id) {
         bookRepository.delete(id);
     }
+
+	@Override
+	@Transactional(readOnly = false)
+	public BookTo editBook(long id, String newTitle) {
+		bookRepository.editBookTitle(id, newTitle);
+		return BookMapper.map(bookRepository.getOne(id));
+		
+	}
 }

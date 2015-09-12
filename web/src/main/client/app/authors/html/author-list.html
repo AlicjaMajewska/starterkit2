@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<section>
+	<div data-ng-controller="AuthorController" ></div>
+		<div flash-message="5000"></div>
+
+		<p>Podaj autora:</p>
+		<input type="text" ng-model="prefix">
+		<button id="AuthorSearchButton" ng-click="search()">Szukaj</button>
+
+
+		<table class="AuthorsTable">
+		<thead>
+			<tr>
+				<th>Imie</th>
+				<th>Nazwisko</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="authorTo in authorsTo | prefixSearch:prefix">
+				<td>{{ authorTo.firstName }}</td>
+				<td>{{ authorTo.lastName }}</td>
+			</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>
