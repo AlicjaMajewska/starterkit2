@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import pl.spring.demo.web.selenium.AbstractPageObject;
 
@@ -16,9 +17,12 @@ public class AuthorsPage extends AbstractPageObject {
 	private WebElement authorsTable;
 	@FindBy(tagName = "tr")
 	List<WebElement> tableRows;
+	public NavigationBar navigationBar;
+
 
 	public AuthorsPage(WebDriver driver) {
 		super(driver);
+		navigationBar = PageFactory.initElements(driver, NavigationBar.class);
 	}
 
 	public AuthorsPage setAuthorName(String authorName) {

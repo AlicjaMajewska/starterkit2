@@ -8,46 +8,44 @@ import org.openqa.selenium.support.PageFactory;
 
 import pl.spring.demo.web.selenium.AbstractPageObject;
 
-public class HomePage extends AbstractPageObject {
-	@FindBys({ @FindBy(tagName = "p"), @FindBy(linkText = "Books dialog") })
+public class NavigationBar extends AbstractPageObject {
+
+
+	@FindBys({ @FindBy(tagName="li" ), @FindBy(linkText="Books")})
 	private WebElement booksDialog;
-	@FindBys({ @FindBy(tagName = "p"), @FindBy(linkText = "Authors dialog") })
+	@FindBys({ @FindBy(tagName="li" ), @FindBy(linkText="Authors")})
 	private WebElement authorsDialog;
-	@FindBys({ @FindBy(tagName = "p"), @FindBy(linkText = "Dialog A") })
+	@FindBys({ @FindBy(tagName="li" ), @FindBy(linkText="Dialog A")})
 	private WebElement dialogA;
-	@FindBys({ @FindBy(tagName = "p"), @FindBy(linkText = "Dialog B") })
+	@FindBys({ @FindBy(tagName="li" ), @FindBy(linkText="Dialog B")})
 	private WebElement dialogB;
-	@FindBys({ @FindBy(tagName = "p"), @FindBy(linkText = "Dialog C") })
+	@FindBys({ @FindBy(tagName="li" ), @FindBy(linkText="Dialog C")})
 	private WebElement dialogC;
 
-	public HomePage(WebDriver driver) {
+	public NavigationBar(WebDriver driver) {
 		super(driver);
-		this.driver.get("http://localhost:9721/workshop/");
 	}
-
+	
 	public BookPage clickBooksDialog() {
 		booksDialog.click();
 		return PageFactory.initElements(driver, BookPage.class);
 	}
-
 	public AuthorsPage clickAuthorsDialog() {
 		authorsDialog.click();
 		return PageFactory.initElements(driver, AuthorsPage.class);
 	}
-
 	public DialogAPage clickDialogA() {
 		dialogA.click();
 		return PageFactory.initElements(driver, DialogAPage.class);
 	}
-
 	public DialogBPage clickDialogB() {
 		dialogC.click();
 		return PageFactory.initElements(driver, DialogBPage.class);
 	}
-
 	public DialogCPage clickDialogC() {
 		dialogC.click();
 		return PageFactory.initElements(driver, DialogCPage.class);
 	}
-
+	
 }
+

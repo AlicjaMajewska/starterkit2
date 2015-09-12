@@ -5,10 +5,12 @@
         </div>
         <div class="modal-body">
             <p>Podaj nowy tytuł</p>
-        <input type="text" ng-maxlength="50" ng-model="newTitle">
+            <p>
+        <input type="text" name="newTitle" ng-maxlength="50" ng-model="newTitle">
+          </p>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-success" ng-click="changeTitle()">Zapisz</button>
+            <button id="SaveNewTitle" class="btn btn-success" ng-click="changeTitle()">Zapisz</button>
             <button class="btn btn-warning" ng-click="$dismiss()">Zamknij</button>
         </div>
     </form>

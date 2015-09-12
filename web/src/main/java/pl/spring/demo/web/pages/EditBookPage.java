@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pl.spring.demo.web.selenium.AbstractPageObject;
 
@@ -13,9 +15,8 @@ public class EditBookPage extends AbstractPageObject {
 		super(driver);
 	}
 
-
 	private WebElement newTitle;
-	@FindBy(className = "btn btn-success")
+	@FindBy(id = "SaveNewTitle")
 	private WebElement editBookButton;
 
 	public EditBookPage setTitle(String title) {
