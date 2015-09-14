@@ -14,20 +14,20 @@
 				<p></p>
 				<p ng-show="addForm.firstName.$invalid && addForm.$submitted">Imie
 					autora musi zostac wpisane</p>
-				<input type="text" name="firstName" placeholder="Imie"
+				<input type="text" name="firstName{{$index}}" placeholder="Imie" 
 					maxlength="50" ng-required="true" ng-model="authorTo.firstName">
 
 				<p></p>
 				<p ng-show="addForm.lastName.$invalid && addForm.$submitted">Nazwisko
 					autora musi zostac wpisane</p>
-				<input type="text" name="lastName" placeholder="Nazwisko"
+				<input type="text" name="lastName{{$index}}"  placeholder="Nazwisko" 
 					maxlength="50" ng-required="true" ng-model="authorTo.lastName">
 
-				<button type="button" class="btn btn-danger"
+				<button type="button" class="btn btn-danger" name="deleteAuthor{{$index}}"
 					ng-click="deleteAuthor($index)">Usun autora</button>
 			</div>
 
-			<button type="button" class="btn btn-primary"
+			<button type="button" class="btn btn-primary" name="addAuthor"
 				ng-click="addNextAuthor()">Dodaj kolejnego autora</button>
 		</div>
 		<div class="modal-footer">
